@@ -11,3 +11,4 @@ our first foray in object oriented game programming
 #### Combat rules
 1. Certain defense styles are weak and strong against certain attack styles
     a. this will determine what modifier a person receives for damage.
+    b. Eli pick up rules here
