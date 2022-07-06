@@ -42,3 +42,5 @@ class char():
             self.equipment[equip_type] = item
         elif (self.equipment[equip_type] != None) & (swap_out == False):
             print('equipment already equipped in this slot')
+
+    
