@@ -1,0 +1,50 @@
+{
+    "prison shank": {
+        "damage": 1,
+        "defense": 0,
+        "imbue" : false,
+        "item_type": "weapon"
+    },
+    "rusty spoon":{
+        "damage": 0,
+        "defense": 0,
+        "imbue" : false,
+        "item_type": "weapon"
+    },
+    "sword of 10 truths": {
+        "damage": 3,
+        "defense": 2,
+        "imbue": true,
+        "item_type": "weapon"
+    },
+    "Josh's long bow": {
+        "damage": 3,
+        "defense": 0,
+        "imbue": true,
+        "item_type": "weapon"
+    },
+    "cruel bardiche":{
+        "damage": 2,
+        "defense": 0,
+        "imbue": false,
+        "item_type": "weapon"
+    },
+    "kite shield":{
+        "damage": 0,
+        "defense": 5,
+        "imbue": false,
+        "item_type": "shield"
+    },
+    "Borden's hatchet":{
+        "damage": 2,
+        "defense": 1,
+        "imbue": true,
+        "item_type": "weapon"
+    },
+    "Ian's bludgeon":{
+        "damage": 3,
+        "defense": 1,
+        "imbue": true,
+        "item_type": "weapon"
+    }
+}
