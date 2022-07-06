@@ -1,0 +1,32 @@
+{
+    "barbarian": {
+        "base_health": 12,
+        "base_physical_attack": 8,
+        "base_magic_attack": 2,
+        "base_armor": 5
+    },
+    "archer": {
+        "base_health": 8,
+        "base_physical_attack": 4,
+        "base_magic_attack": 4,
+        "base_armor": 5
+    },
+    "mage": {
+        "base_health": 7,
+        "base_physical_attack": 2,
+        "base_magic_attack": 10,
+        "base_armor": 4
+    },
+    "priest": {
+        "base_health": 8,
+        "base_physical_attack": 5,
+        "base_magic_attack": 5,
+        "base_armor": 5
+    },
+    "knight": {
+        "base_health": 10,
+        "base_physical_attack": 7,
+        "base_magic_attack": 3,
+        "base_armor": 8
+    }
+}
