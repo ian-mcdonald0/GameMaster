@@ -20,3 +20,20 @@ def attack_analysis(attack,defense):
 
 mult = attack_analysis("air attack","earth defense")
 print(mult)
+
+
+def translate_attack(num, a1, a2, a3, a4, a5):
+    attack = "none"
+    if num == a1:
+        attack = "water attack"
+    elif num == a2:
+        attack = "air attack"
+    elif num == a3:
+        attack = "earth attack"
+    elif num == a4:
+        attack = "fire attack"
+    elif num == a5:
+        attack = "weapon attack"
+    else:
+        attack = "fist attack"
+    return attack
