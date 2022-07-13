@@ -33,14 +33,20 @@ class char():
 
 
     def equip_item(self, item, swap_out = False):
-        assert item.equipment == True, 'item is not equipment so it may not be equipped'
+        # assert item.equipment == True, 'item is not equipment so it may not be equipped'
 
-        equip_type = item.equipment_type
+        equip_type = item.item_type
         if swap_out:
             self.equipment[equip_type] = item
         elif self.equipment[equip_type] == None:
             self.equipment[equip_type] = item
         elif (self.equipment[equip_type] != None) & (swap_out == False):
             print('equipment already equipped in this slot')
+
+    def attack(self):
+        if self.equipment['weapon'] == None:
+            return self.physical_attack
+        else:
+            return self.physical_attack + self.equipment['weapon'].damage
 
     
