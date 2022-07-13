@@ -10,6 +10,7 @@ class char():
         self.name = char_name
         self.type = character_type
         self.initialize_stats()
+        self.alive = True
 
         self.equipment = {'armor' : None, 'weapon': None}
         
@@ -43,10 +44,22 @@ class char():
         elif (self.equipment[equip_type] != None) & (swap_out == False):
             print('equipment already equipped in this slot')
 
-    def attack(self):
+    def calculate_attack(self):
         if self.equipment['weapon'] == None:
             return self.physical_attack
         else:
             return self.physical_attack + self.equipment['weapon'].damage
+
+    def calculate_defense(self):
+        if self.equipment['armor'] == None:
+            return self.armor
+        else:
+            return self.armor + self.equipment['armor'].defense
+
+    def take_damage(self, damage):
+        self.current_health = self.current_health - damage
+        if self.current_health <= 0:
+            self.alive = False
+
 
     
