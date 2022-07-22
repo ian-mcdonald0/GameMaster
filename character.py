@@ -1,6 +1,6 @@
 import random
 import json
-
+from spells import *
 
 class Char():
     def __init__(self, class_reference, character_type, char_name):
@@ -38,6 +38,8 @@ class Char():
         self.magic_attack = stats["base_magic_attack"]
         self.armor = stats["base_armor"]
 
+        self.spells = []
+
 
     def equip_item(self, item, swap_out = False):
         # assert item.equipment == True, 'item is not equipment so it may not be equipped'
@@ -68,4 +70,9 @@ class Char():
             self.alive = False
 
 
-    
+    def gain_spell(self,spell_string):
+        self.spells.append(spell_string)
+
+    def use_spell(self, spell_string):
+        getattr(Spells, spell_string)(self)
+
