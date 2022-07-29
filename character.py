@@ -1,6 +1,7 @@
 import random
 import json
-from spells import *
+# from spells import *
+
 
 class Char():
     def __init__(self, class_reference, character_type, char_name):
@@ -11,6 +12,7 @@ class Char():
         self.type = character_type
         self.initialize_stats()
         self.alive = True
+        # self.spell_ref = Spells()
 
         self.equipment = {'armor' : None, 'weapon': None}
         
@@ -73,6 +75,10 @@ class Char():
     def gain_spell(self,spell_string):
         self.spells.append(spell_string)
 
-    def use_spell(self, spell_string):
-        getattr(Spells, spell_string)(self)
+    def use_spell(self, spell_string, spell_class):
+        if spell_string not in self.spells:
+            return "Character does not have this spell"
+
+        else:
+            return spell_class.spell_lookup(self, spell_string)
 
