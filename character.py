@@ -67,6 +67,8 @@ class Char():
             return self.armor + self.equipment['armor'].defense
 
     def take_damage(self, damage):
+        if damage < 0:
+            damage = 0
         self.current_health = self.current_health - damage
         if self.current_health <= 0:
             self.alive = False
