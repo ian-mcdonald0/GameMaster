@@ -44,17 +44,35 @@ class Arena:
     
     def combat(self):
         #Combat happens
+        
+        #initial combat - choose most dexterous to go first
+        if self.char1.dexterity > self.char2.dexterity:
+            first_move = 'char1'
+        elif self.char1.dexterity < self.char2.dexterity:
+            first_move = 'char2'
+        else:
+            if random.randint(1,2) == 1:
+                first_move = 'char1'
+            else:
+                first_move = 'char2'
+
         while self.char1.alive and self.char2.alive:
             print("Initiating Next Round of Combat!")
-            #char1_attack = int(input("Character 1, which attack do you want to use? Enter p for physical or m for magic: "))
-            #os.system('clear')
-            #char2_attack = int(input("Character 1, which attack do you want to use? Enter p for physical or m for magic: "))
-            #os.system('clear')
-            char1_damage_dealt = self.char1.calculate_attack() - self.char2.calculate_defense()
-            char2_damage_dealt = self.char2.calculate_attack() - self.char1.calculate_defense()
+            char1_move = input("Player 1, which move do you want to use?  Select p for physical or m for magic: ")
+            char2_move = input("Player 2, which move do you want to use?  Select p for physical or m for magic: ")
+            
+            char1_damage_dealt = self.char1.calculate_attack(char1_move) - self.char2.calculate_defense()
+            char2_damage_dealt = self.char2.calculate_attack(char2_move) - self.char1.calculate_defense()
 
-            self.char1.take_damage(char2_damage_dealt)
-            self.char2.take_damage(char1_damage_dealt)
+            if first_move == 'char1':
+                self.char2.take_damage(char1_damage_dealt)
+                if self.char2.alive:
+                    self.char1.take_damage(char2_damage_dealt)
+            elif first_move == 'char2':
+                self.char1.take_damage(char2_damage_dealt)
+                if self.char1.alive:
+                    self.char2.take_damage(char1_damage_dealt)
+
 
             print("Char 1 health remaining: ", self.char1.current_health)
             print("Char 2 health remaining: ", self.char2.current_health)

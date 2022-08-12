@@ -5,3 +5,4 @@ class item():
         self.damage = item_stats["damage"]
         self.defense = item_stats["defense"]
         self.imbue = item_stats["imbue"]
+        self.magic_damage = item_stats["magic_damage"]
