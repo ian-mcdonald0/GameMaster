@@ -54,11 +54,18 @@ class Char():
         elif (self.equipment[equip_type] != None) & (swap_out == False):
             print('equipment already equipped in this slot')
 
-    def calculate_attack(self):
-        if self.equipment['weapon'] == None:
-            return self.physical_attack
-        else:
-            return self.physical_attack + self.equipment['weapon'].damage
+    def calculate_attack(self, attack_move):
+        attack_dmg = 0
+        if attack_move == 'p':
+            attack_dmg += self.physical_attack
+            if self.equipment['weapon'] != None:
+                attack_dmg += self.equipment['weapon'].damage
+        
+        elif attack_move == 'm':
+            attack_dmg += self.magic_attack
+            if self.equipment['weapon'] != None:
+                attack_dmg += self.equipment['weapon'].magic_damage
+        return attack_dmg
 
     def calculate_defense(self):
         if self.equipment['armor'] == None:
