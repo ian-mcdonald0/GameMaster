@@ -1,13 +1,22 @@
+import random
 
 class Spells():
 
     def __init__(self):
         self.dummy = None
 
+    def heal2(character):
+        heal = random.randrange(10,30)*character.intelect
+        return {'self':{"current_health":heal},
+                'opponent':{}}
+
+    def heal(self, character):
+        return character.health*2
+    
     def lightining_bolt(self,character):
         damage = character.magic_attack + 2*character.intelect
         return {'self':{},
-                'opponent':{"damage": damage}}
+                'opponent':{"current_health":damage}}
 
 
     def rend(self,character):

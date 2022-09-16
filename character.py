@@ -1,6 +1,8 @@
 import random
 import json
-# from spells import *
+from tracemalloc import take_snapshot
+import spells
+from spells import Spells
 
 
 class Char():
@@ -55,17 +57,36 @@ class Char():
             print('equipment already equipped in this slot')
 
     def calculate_attack(self, attack_move):
-        attack_dmg = 0
         if attack_move == 'p':
+            attack_dmg = random.randrange(1,6)
             attack_dmg += self.physical_attack
             if self.equipment['weapon'] != None:
                 attack_dmg += self.equipment['weapon'].damage
+            return attack_dmg
         
         elif attack_move == 'm':
+            attack_dmg = random.randrange(1,6)
             attack_dmg += self.magic_attack
             if self.equipment['weapon'] != None:
                 attack_dmg += self.equipment['weapon'].magic_damage
-        return attack_dmg
+            return attack_dmg
+
+    def use_spells(self,cast_spell = ""):
+        #1: We need to turn a string into a function we call.
+        if cast_spell == "heal2": #cast spell should come in with the name of a spell. What is a better way to reference the function?
+            spell_results = Spells.heal2(self)
+        self.spell_outcome(spell_results, 'self') #Do self modifications here. Send opponent mods back to arena class
+        return spell_results
+
+    def spell_outcome(self, spell_results, word):
+        for x in spell_results[word].keys():
+            A = getattr(self,x)
+            setattr(self,x,A+spell_results[word][x])
+
+        if self.current_health > self.max_health:
+            self.current_health = self.max_health
+        return
+
 
     def calculate_defense(self):
         if self.equipment['armor'] == None:
