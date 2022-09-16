@@ -1,6 +1,8 @@
 import random
 import json
-# from spells import *
+from tracemalloc import take_snapshot
+import spells
+from spells import Spells
 
 
 class Char():
@@ -12,16 +14,8 @@ class Char():
         self.type = character_type
         self.initialize_stats()
         self.alive = True
-        # self.spell_ref = Spells()
 
         self.equipment = {'armor' : None, 'weapon': None}
-        
-
-    # def access_class_reference(self):
-    #     with open("character_class_configs.json") as f:
-    #         reference_class_dict = json.load(f)
-
-        # return reference_class_dict
 
     def initialize_stats(self):
 
@@ -55,17 +49,36 @@ class Char():
             print('equipment already equipped in this slot')
 
     def calculate_attack(self, attack_move):
-        attack_dmg = 0
         if attack_move == 'p':
+            attack_dmg = random.randrange(1,6)
             attack_dmg += self.physical_attack
             if self.equipment['weapon'] != None:
                 attack_dmg += self.equipment['weapon'].damage
+            return attack_dmg
         
         elif attack_move == 'm':
+            attack_dmg = random.randrange(1,6)
             attack_dmg += self.magic_attack
             if self.equipment['weapon'] != None:
                 attack_dmg += self.equipment['weapon'].magic_damage
-        return attack_dmg
+            return attack_dmg
+
+    def use_spells(self,cast_spell = ""):
+        
+        spell_results = getattr(Spells,cast_spell)(self)
+        self.spell_outcome(spell_results, 'self') #Do self modifications here. Send opponent modifications back to arena class and they will call spell_outcome
+
+        return spell_results
+
+    def spell_outcome(self, spell_results, word):
+        for x in spell_results[word].keys():
+            A = getattr(self,x)
+            setattr(self,x,A+spell_results[word][x])
+
+        if self.current_health > self.max_health:
+            self.current_health = self.max_health
+        return
+
 
     def calculate_defense(self):
         if self.equipment['armor'] == None:

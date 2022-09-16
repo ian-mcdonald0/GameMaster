@@ -2,6 +2,7 @@ from character import *
 import time
 import random
 import os
+import spells
 #from Attack_moves import *
 import json
 
@@ -46,9 +47,9 @@ class Arena:
         #Combat happens
         
         #initial combat - choose most dexterous to go first
-        if self.char1.dexterity > self.char2.dexterity:
+        if self.char1.initiative > self.char2.initiative:
             first_move = 'char1'
-        elif self.char1.dexterity < self.char2.dexterity:
+        elif self.char1.initiative < self.char2.initiative:
             first_move = 'char2'
         else:
             if random.randint(1,2) == 1:
@@ -57,12 +58,34 @@ class Arena:
                 first_move = 'char2'
 
         while self.char1.alive and self.char2.alive:
-            print("Initiating Next Round of Combat!")
-            char1_move = input("Player 1, which move do you want to use?  Select p for physical or m for magic: ")
-            char2_move = input("Player 2, which move do you want to use?  Select p for physical or m for magic: ")
+            char1_damage_dealt = 0
+            char2_damage_dealt = 0
             
-            char1_damage_dealt = self.char1.calculate_attack(char1_move) - self.char2.calculate_defense()
-            char2_damage_dealt = self.char2.calculate_attack(char2_move) - self.char1.calculate_defense()
+            print("\nInitiating Next Round of Combat!")
+            char1_move = input(f"{self.char1.name}, do you want to use an attack or a spell? 'a' = attack; 's' = spell: ")
+            if char1_move == 'a':
+                char1_move = input(f"{self.char1.name}, which move do you want to use?  Select p for physical, m for magic: ")
+                char1_damage_dealt = self.char1.calculate_attack(char1_move) - self.char2.calculate_defense()
+
+            elif char1_move == 's':
+                print("List of spells: ")
+                char1_move = input(f"{self.char1.name}, which spell do you want to use? ")    
+                spell_results = self.char1.use_spells(char1_move)
+                self.char2.spell_outcome(spell_results,'opponent')
+
+            
+            char2_move = input(f"{self.char2.name}, do you want to use an attack or a spell? 'a' = attack; 's' = spell: ")
+            if char2_move == 'a':
+                char2_move = input(f"{self.char2.name}, which move do you want to use?  Select p for physical, m for magic: ")
+                char2_damage_dealt = self.char2.calculate_attack(char2_move) - self.char1.calculate_defense()
+
+            elif char2_move == 's':
+                print("List of spells: ")
+                char2_move = input(f"{self.char1.name}, which spell do you want to use? ")    
+                spell_results = self.char2.use_spells(char2_move)
+                self.char1.spell_outcome(spell_results,'opponent')
+                
+
 
             if first_move == 'char1':
                 self.char2.take_damage(char1_damage_dealt)
@@ -74,13 +97,13 @@ class Arena:
                     self.char2.take_damage(char1_damage_dealt)
 
 
-            print("Char 1 health remaining: ", self.char1.current_health)
-            print("Char 2 health remaining: ", self.char2.current_health)
+            print(self.char1.name," health remaining: ", self.char1.current_health)
+            print(self.char2.name, " health remaining: ", self.char2.current_health)
 
         #End of Combat
         if not self.char1.alive:
-            print("Character 1 has been defeated. Congratulations, character 2!")
+            print(self.char1.name," has been defeated. Congratulations, ", self.char2.name)
         if not self.char2.alive:
-            print("Character 2 has been defeated. Congratulations, character 1!")
+            print(self.char2.name, " has been defeated. Congratulations, ",self.char1.name)
 
 
