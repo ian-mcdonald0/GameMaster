@@ -75,7 +75,12 @@ class Char():
         #1: We need to turn a string into a function we call.
         if cast_spell == "heal2": #cast spell should come in with the name of a spell. What is a better way to reference the function?
             spell_results = Spells.heal2(self)
+
+        if cast_spell == "lightning_bolt": #cast spell should come in with the name of a spell. What is a better way to reference the function?
+            spell_results = Spells.lightning_bolt(self)
+
         self.spell_outcome(spell_results, 'self') #Do self modifications here. Send opponent mods back to arena class
+
         return spell_results
 
     def spell_outcome(self, spell_results, word):

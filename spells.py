@@ -13,8 +13,8 @@ class Spells():
     def heal(self, character):
         return character.health*2
     
-    def lightining_bolt(self,character):
-        damage = character.magic_attack + 2*character.intelect
+    def lightning_bolt(character):
+        damage = -(character.magic_attack + 2*character.intelect)
         return {'self':{},
                 'opponent':{"current_health":damage}}
 
