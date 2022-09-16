@@ -14,16 +14,8 @@ class Char():
         self.type = character_type
         self.initialize_stats()
         self.alive = True
-        # self.spell_ref = Spells()
 
         self.equipment = {'armor' : None, 'weapon': None}
-        
-
-    # def access_class_reference(self):
-    #     with open("character_class_configs.json") as f:
-    #         reference_class_dict = json.load(f)
-
-        # return reference_class_dict
 
     def initialize_stats(self):
 
@@ -72,14 +64,9 @@ class Char():
             return attack_dmg
 
     def use_spells(self,cast_spell = ""):
-        #1: We need to turn a string into a function we call.
-        if cast_spell == "heal2": #cast spell should come in with the name of a spell. What is a better way to reference the function?
-            spell_results = Spells.heal2(self)
-
-        if cast_spell == "lightning_bolt": #cast spell should come in with the name of a spell. What is a better way to reference the function?
-            spell_results = Spells.lightning_bolt(self)
-
-        self.spell_outcome(spell_results, 'self') #Do self modifications here. Send opponent mods back to arena class
+        
+        spell_results = getattr(Spells,cast_spell)(self)
+        self.spell_outcome(spell_results, 'self') #Do self modifications here. Send opponent modifications back to arena class and they will call spell_outcome
 
         return spell_results
 
