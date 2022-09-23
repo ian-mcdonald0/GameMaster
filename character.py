@@ -23,7 +23,7 @@ class Char():
 
         self.max_health = stats["base_health"] + random.randrange(1,7)
         self.strength = stats['strength']
-        self.intelect = stats['intelect']
+        self.intellect = stats['intellect']
         self.dexterity = stats['dexterity']
         self.initiative = stats['initiative']
         self.constitution = stats['constitution']
@@ -108,6 +108,8 @@ class Char():
         char_stats = {'current_health': self.current_health,
                         'armor': self.armor,
                         'physical_attack': self.physical_attack,
-                        'magic_attack': self.magic_attack}
+                        'magic_attack': self.magic_attack,
+                        'strength': self.strength,
+                        'intellect': self.intellect}
 
         return char_stats
