@@ -100,7 +100,14 @@ class Char():
     def use_spell(self, spell_string, spell_class):
         if spell_string not in self.spells:
             return "Character does not have this spell"
-
         else:
             return spell_class.spell_lookup(self, spell_string)
 
+    def char_summary(self):
+
+        char_stats = {'current_health': self.current_health,
+                        'armor': self.armor,
+                        'physical_attack': self.physical_attack,
+                        'magic_attack': self.magic_attack}
+
+        return char_stats
