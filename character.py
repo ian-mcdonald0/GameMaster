@@ -1,6 +1,5 @@
 import random
 import json
-from tracemalloc import take_snapshot
 import spells
 from spells import Spells
 
@@ -15,7 +14,7 @@ class Char():
         self.initialize_stats()
         self.alive = True
 
-        self.equipment = {'armor' : None, 'weapon': None}
+        self.equipment = {'armor' : None, 'weapon': None, 'consumable':None}
 
     def initialize_stats(self):
 

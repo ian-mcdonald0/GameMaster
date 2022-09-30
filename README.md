@@ -39,3 +39,25 @@ our first foray in object oriented game programming
     a. contains multi chars
     b. contains multi monsters
     c. allows environment for chars and monsters to interact
+
+
+
+
+Shop Class Requirements:
+1. Characters need money
+2. Characters need to interact with the shop to purchase items
+3. When a character purchases an item, character must equip item
+4. the shop must take the money
+5. the shop must replenish the item?
+6. Game class instantiates shop
+7. space for characters to interact with shop inside of game class
+8. Arena focuses on facilitating fighting.
+
+Class Hierarchy
+Game
+    Shop - where we get items and spells
+    Characters - obvious
+    Arena - facilitates fighting
+    Items - 
+
+
