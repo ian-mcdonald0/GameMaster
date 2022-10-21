@@ -5,7 +5,7 @@ from spells import Spells
 
 
 class Char():
-    def __init__(self, class_reference, character_type, char_name):
+    def __init__(self, class_reference, character_type, char_name, game):
 
         # self.reference_class_dict = self.access_class_reference()
         self.reference_class_dict = class_reference
@@ -13,6 +13,7 @@ class Char():
         self.type = character_type
         self.initialize_stats()
         self.alive = True
+        self.game = game
 
         self.equipment = {'armor' : None, 'weapon': None, 'consumable':None}
 
@@ -36,7 +37,20 @@ class Char():
         self.spells = []
 
 
-    def equip_item(self, item, swap_out = False):
+    def buy_item(self, coins = 100):
+        i = 1
+        for item_name in list(self.game.shop.armory.keys()):
+            print("The items you can buy are: [", i,"] ",item_name)
+            i += 1
+        x = int(input(print("What would you like to buy? For none, press 0.")))
+        if x != 0:
+            bought_item = self.game.shop.purchase_item(list(self.game.shop.armory.keys())[x-1])
+            #x = int(input(print("What would you like to buy? For none, press 0.")))
+        self.equip_item(bought_item)
+        return
+
+    
+    def equip_item(self, item, swap_out = True):
         # assert item.equipment == True, 'item is not equipment so it may not be equipped'
 
         equip_type = item.item_type
@@ -46,6 +60,7 @@ class Char():
             self.equipment[equip_type] = item
         elif (self.equipment[equip_type] != None) & (swap_out == False):
             print('equipment already equipped in this slot')
+        return
 
     def calculate_attack(self, attack_move):
         if attack_move == 'p':

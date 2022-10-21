@@ -12,7 +12,7 @@ class Game():
         self.characters = dict()
     
     def generateCharacter(self, character_type, char_name):
-        C = Char(self.characterInfo, character_type, char_name)
+        C = Char(self.characterInfo, character_type, char_name, self)
         self.characterCounter += 1
         self.characters[C.name] = C
 
