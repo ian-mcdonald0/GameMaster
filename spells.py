@@ -9,7 +9,7 @@ class Spells():
         """
         This spell heals people.
         """
-        heal = random.randrange(10,30)*character.intelect
+        heal = random.randrange(10,30)*character.intellect
         return {'self':{"current_health":heal},
                 'opponent':{}}
 
@@ -17,7 +17,7 @@ class Spells():
         """
         This spell damages your opponent.
         """
-        damage = -random.randrange(10,30)*character.intelect
+        damage = -random.randrange(10,30)*character.intellect
         return {'self':{},
                 'opponent':{"current_health":damage},"armor":-2}
 
@@ -25,7 +25,7 @@ class Spells():
     #     """
     #     This spell ups all your stats.
     #     """
-    #      = -random.randrange(10,30)*character.intelect
+    #      = -random.randrange(10,30)*character.intellect
     #     return {'self':{},
     #             'opponent':{"current_health":damage},"armor":-2}
 
@@ -34,7 +34,7 @@ class Spells():
         """
         This spell damages opponents.
         """
-        damage = -(character.magic_attack + 2*character.intelect)
+        damage = -(character.magic_attack + 2*character.intellect)
         return {'self':{},
                 'opponent':{"current_health":damage}}
 
@@ -44,6 +44,28 @@ class Spells():
         """
         return {'self':{},
                 'opponent':{"armor": -2}}
+
+    def dunce(character):
+        """
+        This spell reduces enemy wisdom.
+        """
+        return {'self':{},
+                'opponent':{"intellect": -2}}
+
+    def weaken(character):
+        """
+        This spell reduces enemy strength.
+        """
+        return {'self':{},
+                'opponent':{"strength": -2}}
+
+    def sujamma(character):
+        """
+        This spell reduces enemy strength.
+        """
+        return {'self':{"strength": +3,
+                         "intellect": -2},
+                'opponent':{}}
 
 
     # def spell_lookup(self, character, spell_string):

@@ -1,6 +1,5 @@
 import random
 import json
-from tracemalloc import take_snapshot
 import spells
 from spells import Spells
 
@@ -15,7 +14,7 @@ class Char():
         self.initialize_stats()
         self.alive = True
 
-        self.equipment = {'armor' : None, 'weapon': None}
+        self.equipment = {'armor' : None, 'weapon': None, 'consumable':None}
 
     def initialize_stats(self):
 
@@ -23,7 +22,7 @@ class Char():
 
         self.max_health = stats["base_health"] + random.randrange(1,7)
         self.strength = stats['strength']
-        self.intelect = stats['intelect']
+        self.intellect = stats['intellect']
         self.dexterity = stats['dexterity']
         self.initiative = stats['initiative']
         self.constitution = stats['constitution']
@@ -100,7 +99,16 @@ class Char():
     def use_spell(self, spell_string, spell_class):
         if spell_string not in self.spells:
             return "Character does not have this spell"
-
         else:
             return spell_class.spell_lookup(self, spell_string)
 
+    def char_summary(self):
+
+        char_stats = {'current_health': self.current_health,
+                        'armor': self.armor,
+                        'physical_attack': self.physical_attack,
+                        'magic_attack': self.magic_attack,
+                        'strength': self.strength,
+                        'intellect': self.intellect}
+
+        return char_stats

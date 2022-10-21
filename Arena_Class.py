@@ -57,13 +57,17 @@ class Arena:
             else:
                 first_move = 'char2'
 
+        print(f'Character Stats:\n {self.char1.name}: {self.char1.char_summary()}\n {self.char2.name}: {self.char2.char_summary()}  ')
+
         while self.char1.alive and self.char2.alive:
             char1_damage_dealt = 0
             char2_damage_dealt = 0
             
             print("\nInitiating Next Round of Combat!")
-            char1_move = input(f"{self.char1.name}, do you want to use an attack or a spell? 'a' = attack; 's' = spell: ")
-            if char1_move == 'a':
+            char1_move = input(f"{self.char1.name}, do you want to use an attack or a spell? 'a' = attack; 's' = spell, 'end' to exit combat: ")
+            if char1_move == 'end':
+                break
+            elif char1_move == 'a':
                 char1_move = input(f"{self.char1.name}, which move do you want to use?  Select p for physical, m for magic: ")
                 char1_damage_dealt = self.char1.calculate_attack(char1_move) - self.char2.calculate_defense()
 
@@ -74,8 +78,10 @@ class Arena:
                 self.char2.spell_outcome(spell_results,'opponent')
 
             
-            char2_move = input(f"{self.char2.name}, do you want to use an attack or a spell? 'a' = attack; 's' = spell: ")
-            if char2_move == 'a':
+            char2_move = input(f"{self.char2.name}, do you want to use an attack or a spell? 'a' = attack; 's' = spell; 'end' to exit combat: ")
+            if char2_move == 'end':
+                break
+            elif char2_move == 'a':
                 char2_move = input(f"{self.char2.name}, which move do you want to use?  Select p for physical, m for magic: ")
                 char2_damage_dealt = self.char2.calculate_attack(char2_move) - self.char1.calculate_defense()
 
@@ -97,8 +103,8 @@ class Arena:
                     self.char2.take_damage(char1_damage_dealt)
 
 
-            print(self.char1.name," health remaining: ", self.char1.current_health)
-            print(self.char2.name, " health remaining: ", self.char2.current_health)
+            print(f'{self.char1.name} {self.char1.char_summary()}')
+            print(f'{self.char2.name} {self.char2.char_summary()}')
 
         #End of Combat
         if not self.char1.alive:

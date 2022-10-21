@@ -1,6 +1,7 @@
 
 class item():
-    def __init__(self, item_stats):
+    def __init__(self, name, item_stats):
+        self.name = name
         self.item_type = item_stats["item_type"]
         self.damage = item_stats["damage"]
         self.defense = item_stats["defense"]

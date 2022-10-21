@@ -1,6 +1,6 @@
 {
     "barbarian": {
-        "intelect": 2,
+        "intellect": 2,
         "strength": 4,
         "constitution": 4,
         "dexterity": 2,
@@ -12,7 +12,7 @@
         "base_armor": 3
     },
     "archer": {
-        "intelect": 3,
+        "intellect": 3,
         "strength": 2,
         "constitution": 2,
         "dexterity": 4,
@@ -24,7 +24,7 @@
         "base_armor": 3
     },
     "mage": {
-        "intelect": 4,
+        "intellect": 4,
         "strength": 2,
         "constitution": 2,
         "dexterity": 3,
@@ -36,7 +36,7 @@
         "base_armor": 4
     },
     "priest": {
-        "intelect": 3,
+        "intellect": 3,
         "strength": 2,
         "constitution": 2,
         "dexterity": 3,
@@ -48,7 +48,7 @@
         "base_armor": 5
     },
     "knight": {
-        "intelect": 3,
+        "intellect": 3,
         "strength": 5,
         "constitution": 4,
         "dexterity": 3,
