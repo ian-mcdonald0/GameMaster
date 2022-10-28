@@ -5,6 +5,7 @@ from character import Char
 from Shop_Class import shop
 from itemClass import item
 import json
+from Monster import Monster
 
 
 with open("character_class_configs.json") as f:
@@ -13,32 +14,38 @@ with open("character_class_configs.json") as f:
 with open('item_config.json') as data_file:
     item_data = json.load(data_file)
 
+with open('Monster_class_configs.json') as monster_file:
+    monster_class_dict = json.load(monster_file)
 
-G = Game(reference_class_dict, item_data)
-G.generateCharacter('knight','Phil')
-G.generateCharacter('mage','Draco')
+G = Game(reference_class_dict, item_data, monster_class_dict)
 
-G.initializeShop()
-print(G.shop.coin)
+G.generate_monster('witch')
+print(G.monsters)
+print(G.monsters['witch'].intellect)
 
-G.shop.fill_up_shop()
-print(G.shop.armory)
+# G.generateCharacter('knight','Phil')
+# G.generateCharacter('mage','Draco')
 
-C1 = G.characters['Draco']
-C2 = G.characters['Phil']
+# G.initializeShop()
+# print(G.shop.coin)
 
-C1.buy_item()
-C2.buy_item()
+# G.shop.fill_up_shop()
+# print(G.shop.armory)
 
-print(C1.equipment,C2.equipment)
+# C1 = G.characters['Draco']
+# C2 = G.characters['Phil']
 
-#item_to_buy = list(G.shop.armory.keys())[0]
-#print(f'Eli is buying a {item_to_buy}')
+# C1.buy_item()
+# C2.buy_item()
 
-#G.shop.purchase_item(item_to_buy)
-#print(G.shop.armory)
+# print(C1.equipment,C2.equipment)
 
-G.initializeArena('Phil','Draco')
-print(G.characters.keys())
-G.A.combat()
+# #item_to_buy = list(G.shop.armory.keys())[0]
+# #print(f'Eli is buying a {item_to_buy}')
 
+# #G.shop.purchase_item(item_to_buy)
+# #print(G.shop.armory)
+
+# G.initializeArena('Phil','Draco')
+# print(G.characters.keys())
+# G.A.combat()
