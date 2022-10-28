@@ -24,12 +24,20 @@ print(G.shop.coin)
 G.shop.fill_up_shop()
 print(G.shop.armory)
 
-item_to_buy = list(G.shop.armory.keys())[0]
-print(f'Eli is buying a {item_to_buy}')
+C1 = G.characters['Draco']
+C2 = G.characters['Phil']
 
-G.shop.purchase_item(item_to_buy)
-print(G.shop.armory)
+C1.buy_item()
+C2.buy_item()
 
-# G.initializeArena('Phil','Draco')
-# print(G.characters.keys())
-# G.A.combat()
+print(C1.equipment,C2.equipment)
+
+#item_to_buy = list(G.shop.armory.keys())[0]
+#print(f'Eli is buying a {item_to_buy}')
+
+#G.shop.purchase_item(item_to_buy)
+#print(G.shop.armory)
+
+G.initializeArena('Phil','Draco')
+print(G.characters.keys())
+G.A.combat()
