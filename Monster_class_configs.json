@@ -1,0 +1,26 @@
+{
+    "goblin": {
+        "intellect": 1,
+        "strength": 1,
+        "constitution": 1,
+        "dexterity": 1,
+        "initiative": 1,
+        "wisdom": 1,
+        "base_health":12,
+        "base_physical_attack": 1,
+        "base_magic_attack": 1,
+        "base_armor": 1
+    },
+    "witch": {
+        "intellect": 1,
+        "strength": 1,
+        "constitution": 1,
+        "dexterity": 1,
+        "initiative": 1,
+        "wisdom": 1,
+        "base_health":12,
+        "base_physical_attack": 1,
+        "base_magic_attack": 1,
+        "base_armor": 1
+    }
+}

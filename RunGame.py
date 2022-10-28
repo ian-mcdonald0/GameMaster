@@ -41,3 +41,4 @@ print(C1.equipment,C2.equipment)
 G.initializeArena('Phil','Draco')
 print(G.characters.keys())
 G.A.combat()
+
