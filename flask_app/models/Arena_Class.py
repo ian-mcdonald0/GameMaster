@@ -1,4 +1,4 @@
-from character import *
+from flask_app.models.character import *
 import time
 import random
 import os

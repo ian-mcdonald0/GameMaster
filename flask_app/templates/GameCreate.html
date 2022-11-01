@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/character/create" method="POST">
+        <h1>Character Creation</h1>
+        <div>
+            <label for="Archetype">Choose Your Archetype</label>
+            <select name="Archetype" id="Archetype">
+                <option value="">Choose</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Archer">Archer</option>
+                <option value="Priest">Priest</option>
+                <option value="Mage">Mage</option>
+                <option value="Knight">Knight</option>
+            </select>
+            <label for="name">Name Your Champion</label>
+            <input type="text" name="name">
+        </div>
+    </form>
+</body>
+</html>

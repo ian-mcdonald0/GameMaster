@@ -1,9 +1,9 @@
 
-from character import Char
-from Arena_Class import Arena
+from flask_app.models.character import Char
+from flask_app.models.Arena_Class import Arena
 from Shop_Class import shop
 from itemClass import item
-from Monster import Monster
+from flask_app.models.NonPlayable.Monster import Monster
 
 class Game():
     def __init__(self,character_class_configs, item_ref_dict, Monster_class_configs):

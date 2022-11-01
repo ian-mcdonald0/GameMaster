@@ -1,11 +1,11 @@
 
 
-from Game import Game
-from character import Char
+from flask_app.models.Game import Game
+from flask_app.models.character import Char
 from Shop_Class import shop
 from itemClass import item
 import json
-from Monster import Monster
+from flask_app.models.NonPlayable.Monster import Monster
 
 
 with open("character_class_configs.json") as f:

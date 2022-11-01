@@ -34,5 +34,17 @@
         "base_physical_attack": 10,
         "base_magic_attack": 10,
         "base_armor": 10
+    },
+    "Jookaboo": {
+        "intellect": 1,
+        "strength": 1,
+        "constitution": 1,
+        "dexterity": 1,
+        "initiative": 1,
+        "wisdom": 1,
+        "base_health":30,
+        "base_physical_attack": 10,
+        "base_magic_attack": 10,
+        "base_armor": 10
     }
 }
