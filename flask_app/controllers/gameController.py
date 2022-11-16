@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template, redirect, request, flash, session
-from flask_app.models.game import Game
+from flask_app.models.Game import Game
 import json
 
 with open("character_class_configs.json") as f:
@@ -30,15 +30,17 @@ def characterCreate():
     # player1 = newGame.generateCharacter(reference_class_dict, char_type, char_name )
     
     data = {
-        'archetype': request.form['archetype'],
-        'name': request.form['name']
+        'archetype1': request.form['archetype1'],
+        'archetype2': request.form['archetype2'],
+        'name1': request.form['name1'],
+        'name2': request.form['name2']
     }
     # print(reference_class_dict)
     # print(data)
-    print(type(newGame))
-    newGame.generateCharacter(data['archetype'], data['name'])
-    player1 = newGame.characters[data['name']]
-    print(player1.name)
-    # print(player1.)
-    return render_template('start.html', player = player1)
+    newGame.generateCharacter(data['archetype1'], data['name1'])
+    newGame.generateCharacter(data['archetype2'], data['name2'])
+    # player1 = newGame.characters[data['name']]
+    # print(player1.name)
+    # # print(player1.)
+    return render_template('start.html', game = newGame)
 

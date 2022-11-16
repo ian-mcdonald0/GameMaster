@@ -8,10 +8,10 @@
 </head>
 <body>
     <form action="/character/create" method='POST'>
-        <h1>Character Creation</h1>
+        <h1>Character 1 Creation</h1>
         <div>
             <label for="archetype">Choose Your Archetype</label>
-            <select name="archetype">
+            <select name="archetype1">
                 <option value="">Choose</option>
                 <option value="barbarian">Barbarian</option>
                 <option value="archer">Archer</option>
@@ -20,7 +20,22 @@
                 <option value="knight">Knight</option>
             </select>
             <label for="name">Name Your Champion</label>
-            <input type="text" name="name">
+            <input type="text" name="name1">
+        </div>
+
+        <h1>Character 2 Creation</h1>
+        <div>
+            <label for="archetype">Choose Your Archetype</label>
+            <select name="archetype2">
+                <option value="">Choose</option>
+                <option value="barbarian">Barbarian</option>
+                <option value="archer">Archer</option>
+                <option value="priest">Priest</option>
+                <option value="mage">Mage</option>
+                <option value="knight">Knight</option>
+            </select>
+            <label for="name">Name Your Champion</label>
+            <input type="text" name="name2">
             <input type="submit" value="Create">
         </div>
     </form>
