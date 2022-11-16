@@ -1,5 +1,6 @@
 import random
-from spells import Spells
+import flask_app.models.spells as spells
+from flask_app.models.spells import spells
 
 # Parent class for all units in game
 class Unit():
@@ -73,7 +74,7 @@ class Unit():
     #### SPELL METHODS ####
     def use_spells(self,cast_spell = ""):
         
-        spell_results = getattr(Spells,cast_spell)(self)
+        spell_results = getattr(spells,cast_spell)(self)
         self.spell_outcome(spell_results, 'self') #Do self modifications here. Send opponent modifications back to arena class and they will call spell_outcome
 
         return spell_results

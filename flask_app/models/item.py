@@ -1,5 +1,5 @@
 
-class item():
+class Item():
     def __init__(self, name, item_stats):
         self.name = name
         self.item_type = item_stats["item_type"]

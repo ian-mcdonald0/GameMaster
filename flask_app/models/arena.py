@@ -2,7 +2,7 @@ from flask_app.models.character import *
 import time
 import random
 import os
-import spells
+import flask_app.models.spells as spells
 #from Attack_moves import *
 import json
 

@@ -1,9 +1,9 @@
 
 
-from flask_app.models.Game import Game
+from flask_app.models.game import Game
 from flask_app.models.character import Char
-from Shop_Class import shop
-from itemClass import item
+from flask_app.models.shop import Shop
+from flask_app.models.item import Item
 import json
 from flask_app.models.NonPlayable.Monster import Monster
 

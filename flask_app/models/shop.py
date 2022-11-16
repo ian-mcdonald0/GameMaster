@@ -1,10 +1,10 @@
 import random
 import json
-import spells
-from spells import Spells
-from itemClass import item
+import flask_app.models.spells as Spells
+from flask_app.models.spells import Spells
+from flask_app.models.item import Item
 
-class shop():
+class Shop():
     def __init__(self, game, item_ref_dict):
         self.coin = 100
         self.armory = dict()
