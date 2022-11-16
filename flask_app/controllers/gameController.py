@@ -44,3 +44,5 @@ def characterCreate():
     # # print(player1.)
     return render_template('start.html', game = newGame)
 
+
+@app.route('/arena', methods=['POST'])
